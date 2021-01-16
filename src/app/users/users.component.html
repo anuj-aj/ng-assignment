@@ -1,0 +1,30 @@
+<table
+  *ngIf="users.length > 0; else anotherTemplate"
+  class="table is-bordered is-striped"
+>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of users">
+      <td>{{ u.name }}</td>
+      <td>{{ u.username }}</td>
+      <td highlighter>
+        {{ u.email }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<button (click)="tableUpdated()">Update Records</button>
+<div>Please see both the required templates by toggling the button above as in one case
+   the record is updated with the database and in other case the record is 
+   made empty to show no users available</div>
+
+<ng-template #anotherTemplate>
+  <div>❌No users available in records!</div>
+</ng-template>
